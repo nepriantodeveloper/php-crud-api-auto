@@ -23,7 +23,7 @@
             return !($tableName == 'users' && $columnName == 'password');
         },
         'authorization.columnHandler' => function ($operation, $tableName, $columnName) {
-            return !($tableName == 'users'  && $columnName=='api_key');
+            return !($tableName == 'users' && in_array($columnName, ['password','api_key']));
         },
         
         //disini
@@ -31,3 +31,4 @@
         
        
     ]);
+//https://github.com/mevdschee/php-crud-api/issues/966
